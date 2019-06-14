@@ -1,0 +1,15 @@
+h4{
+    padding: 10px;
+    margin-bottom: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+hr{
+    color: azure;
+}
+
+.container{
+    padding-top: 30px;
+}
+
