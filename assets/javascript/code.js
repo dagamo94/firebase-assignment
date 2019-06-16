@@ -79,17 +79,18 @@ database.ref().on("child_added", function (childSnapshot) {
 
     // Next Train
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+    var arrivalTime = moment(nextTrain).format("hh:mm A");
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
     var tblRow = $("<tr>");
     var tblRowHead = $("<th>").attr("scope", "row").text(childSnapshot.val().dbTrainName);
     var tblDest = $("<td>").text(childSnapshot.val().dbDestination);
     var tblFreq = $("<td>").text(childSnapshot.val().dbFrequency);
-    var tblNextArrival = $("<td>").text(nextTrain);
+    var tblNextArrival = $("<td>").text(arrivalTime);
     var tblMinsAway = $("<td>").text(tMinutesTillTrain);
     var removeBtn = $("<td>").append($("<button>").attr({
         type: "submit",
-        class: "btn btn-secondary remove",
+        class: "btn btn-dark remove",
         id: childSnapshot.val().dbTrainName + "-remove"
     }).text("Remove"));
     
