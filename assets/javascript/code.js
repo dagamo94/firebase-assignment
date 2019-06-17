@@ -54,7 +54,6 @@ database.ref().on("child_added", function (childSnapshot) {
 
     var tFrequency = childSnapshot.val().dbFrequency;
 
-    // Time is 3:30 AM
     var firstTime = childSnapshot.val().dbFirstTrainTime;
 
     // First Time (pushed back 1 year to make sure it comes before current time)
@@ -103,4 +102,11 @@ database.ref().on("child_added", function (childSnapshot) {
     // console.log(childSnapshot.val().dbDestination);
     // console.log(childSnapshot.val().dbFirstTrainTime);
     // console.log(childSnapshot.val().dbFrequency);
+    $("td").on("click", ".remove", function(event){
+        event.preventDefault();
+        alert(tblMinsAway.text());
+        $(this).remove(tblRow);
+        console.log();
+    });
 });
+
