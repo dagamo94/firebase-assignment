@@ -33,7 +33,7 @@ $("#capture-train-info").on("click", function (event) {
     firstTrainTime = $("#first-train-time").val().trim();
     frequency = $("#frequency").val().trim();
 
-    if (trainName !== "" && destination !== "" && firstTrainTime !== "", frequency !== "") {
+    if (trainName !== "" && destination !== "" && firstTrainTime !== "" && frequency !== "") {
 
         trainInfoObj = {
             dbTrainName: trainName,
@@ -51,7 +51,7 @@ $("#capture-train-info").on("click", function (event) {
 });
 
 database.ref().on("child_added", function (childSnapshot) {
-
+    console.log(childSnapshot)
     var tFrequency = childSnapshot.val().dbFrequency;
 
     var firstTime = childSnapshot.val().dbFirstTrainTime;
@@ -107,6 +107,13 @@ database.ref().on("child_added", function (childSnapshot) {
         alert(tblMinsAway.text());
         $(this).remove(tblRow);
         console.log();
+        firebase.database().ref("testing-30df7/-LhbGm3OSdSJAtK-HzlF").remove()
+        .then(function(){
+            console.log("removed");
+        })
+        .catch(function(error){
+            console.log("error", error)
+        })
     });
 });
 
